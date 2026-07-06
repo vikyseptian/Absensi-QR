@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Admin Panel</h1>
+
+    <input
+        type="text"
+        id="pertemuan"
+        placeholder="Contoh: Pertemuan 1">
+
+    <br><br>
+
+    <button onclick="buatQR()">
+        Generate QR
+    </button>
+
+    <br><br>
+
+    <div id="qrcode"></div>
+
+    <br>
+
+    <h3 id="timer"></h3>
+
+    <script src="script.js"></script>
+
+    <script>
+
+    window.onload = function(){
+
+        let qrTersimpan =
+        localStorage.getItem("qrAktif");
+
+        if(qrTersimpan){
+
+            document.getElementById("qrcode").innerHTML = "";
+
+            new QRCode(
+                document.getElementById("qrcode"),
+                qrTersimpan
+            );
+
+            try{
+
+                let dataQR =
+                JSON.parse(qrTersimpan);
+
+                document.getElementById("pertemuan").value =
+                dataQR.pertemuan;
+
+            }catch{
+
+                document.getElementById("pertemuan").value =
+                qrTersimpan;
+
+            }
+
+        }
+
+    }
+
+    </script>
+
+</body>
+</html>
