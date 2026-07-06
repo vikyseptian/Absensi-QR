@@ -12,39 +12,40 @@
 
 <body>
 
-<!-- Proteksi Admin -->
 <script>
 if(localStorage.getItem("admin") !== "true"){
     window.location.href = "admin-login.html";
 }
 </script>
 
-<h1>Admin Panel</h1>
+<div class="container">
 
-<button onclick="logoutAdmin()">
-    Logout
-</button>
+    <h1>Admin Panel</h1>
 
-<br><br>
+    <button onclick="logoutAdmin()">
+        Logout
+    </button>
 
-<input
-    type="text"
-    id="pertemuan"
-    placeholder="Contoh: Praktikum PLC">
+    <br><br>
 
-<br><br>
+    <input
+        type="text"
+        id="pertemuan"
+        placeholder="Contoh: Praktikum PLC">
 
-<button onclick="buatQR()">
-    Generate QR
-</button>
+    <br><br>
 
-<br><br>
+    <button onclick="buatQR()">
+        Generate QR
+    </button>
 
-<div id="qrcode"></div>
+    <br><br>
 
-<br>
+    <div id="qrcode"></div>
 
-<h3 id="timer"></h3>
+    <h3 id="timer"></h3>
+
+</div>
 
 <script src="script.js"></script>
 
