@@ -17,32 +17,38 @@ body{
 
 .container{
     text-align: center;
-    padding: 30px;
-    max-width: 600px;
-    margin: 50px auto;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    width: 90%;
 }
 
 .logo{
-    width: 250px;
+    width: 180px;
+    max-width: 60%;
     margin-bottom: 20px;
 }
 
 h1{
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
 input{
-    width: 320px;
-    padding: 12px;
-    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 18px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 button{
-    width: 180px;
-    padding: 12px;
-    font-size: 16px;
+    width: 100%;
+    max-width: 250px;
+    padding: 15px;
+    font-size: 18px;
     border: none;
     border-radius: 8px;
     background: #7a0056;
@@ -63,4 +69,25 @@ button:hover{
 #timer{
     text-align: center;
     margin-top: 15px;
+}
+
+/* HP */
+@media (max-width: 600px){
+
+    .logo{
+        width: 140px;
+    }
+
+    h1{
+        font-size: 32px;
+    }
+
+    input{
+        font-size: 16px;
+    }
+
+    button{
+        font-size: 16px;
+    }
+
 }
