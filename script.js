@@ -1,10 +1,11 @@
 let intervalTimer;
+
 function login() {
 
-    let nama = document.getElementById("nama").value;
-    let nim = document.getElementById("nim").value;
+    let nama = document.getElementById("nama").value.trim();
+    let nim = document.getElementById("nim").value.trim();
 
-    if (nama == "" || nim == "") {
+    if (nama === "" || nim === "") {
         alert("Nama dan NIM wajib diisi!");
         return;
     }
@@ -69,9 +70,12 @@ function startScanner() {
         .then(res => res.text())
         .then(data => {
             console.log(data);
+            alert("Absensi Berhasil!");
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Gagal mengirim data!");
         });
-
-        alert("Absensi Berhasil!");
     }
 
     const scanner = new Html5QrcodeScanner(
@@ -87,12 +91,12 @@ function startScanner() {
 
 function loginAdmin(){
 
-    let user = document.getElementById("username").value;
-    let pass = document.getElementById("password").value;
+    let user = document.getElementById("username").value.trim();
+    let pass = document.getElementById("password").value.trim();
 
-    if(user === "admin" && pass === "admin123"){
+    if(user === "OctavaCenturia104" && pass === "Viky270905"){
 
-        localStorage.setItem("admin","true");
+        localStorage.setItem("admin", "true");
 
         window.location.href = "admin.html";
 
@@ -106,7 +110,13 @@ function loginAdmin(){
 function buatQR(){
 
     let pertemuan =
-    document.getElementById("pertemuan").value;
+    document.getElementById("pertemuan").value.trim();
+
+    if(pertemuan === ""){
+
+        alert("Isi nama pertemuan terlebih dahulu!");
+        return;
+    }
 
     let expired =
     Date.now() + (15 * 60 * 1000);
@@ -149,6 +159,8 @@ function buatQR(){
 
             localStorage.removeItem("qrAktif");
 
+            document.getElementById("qrcode").innerHTML = "";
+
             return;
         }
 
@@ -161,6 +173,13 @@ function buatQR(){
         document.getElementById("timer").innerHTML =
         `Expired dalam ${menit}:${detik.toString().padStart(2,'0')}`;
 
-    },1000);
+    }, 1000);
 
+}
+
+function logoutAdmin(){
+
+    localStorage.removeItem("admin");
+
+    window.location.href = "admin-login.html";
 }
