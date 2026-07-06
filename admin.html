@@ -12,65 +12,78 @@
 
 <body>
 
-    <h1>Admin Panel</h1>
+<!-- Proteksi Admin -->
+<script>
+if(localStorage.getItem("admin") !== "true"){
+    window.location.href = "admin-login.html";
+}
+</script>
 
-    <input
-        type="text"
-        id="pertemuan"
-        placeholder="Contoh: Pertemuan 1">
+<h1>Admin Panel</h1>
 
-    <br><br>
+<button onclick="logoutAdmin()">
+    Logout
+</button>
 
-    <button onclick="buatQR()">
-        Generate QR
-    </button>
+<br><br>
 
-    <br><br>
+<input
+    type="text"
+    id="pertemuan"
+    placeholder="Contoh: Praktikum PLC">
 
-    <div id="qrcode"></div>
+<br><br>
 
-    <br>
+<button onclick="buatQR()">
+    Generate QR
+</button>
 
-    <h3 id="timer"></h3>
+<br><br>
 
-    <script src="script.js"></script>
+<div id="qrcode"></div>
 
-    <script>
+<br>
 
-    window.onload = function(){
+<h3 id="timer"></h3>
 
-        let qrTersimpan =
-        localStorage.getItem("qrAktif");
+<script src="script.js"></script>
 
-        if(qrTersimpan){
+<script>
 
-            document.getElementById("qrcode").innerHTML = "";
+window.onload = function(){
 
-            new QRCode(
-                document.getElementById("qrcode"),
-                qrTersimpan
-            );
+    let qrTersimpan =
+    localStorage.getItem("qrAktif");
 
-            try{
+    if(qrTersimpan){
 
-                let dataQR =
-                JSON.parse(qrTersimpan);
+        document.getElementById("qrcode").innerHTML = "";
 
-                document.getElementById("pertemuan").value =
-                dataQR.pertemuan;
+        new QRCode(
+            document.getElementById("qrcode"),
+            qrTersimpan
+        );
 
-            }catch{
+        try{
 
-                document.getElementById("pertemuan").value =
-                qrTersimpan;
+            let dataQR =
+            JSON.parse(qrTersimpan);
 
-            }
+            document.getElementById("pertemuan").value =
+            dataQR.pertemuan;
+
+        }catch{
+
+            document.getElementById("pertemuan").value =
+            qrTersimpan;
 
         }
 
     }
 
-    </script>
+}
+
+</script>
 
 </body>
 </html>
