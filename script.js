@@ -18,7 +18,15 @@ function login() {
 
 function startScanner() {
 
+    let sudahScan = false;
+
     function onScanSuccess(decodedText) {
+
+        if(sudahScan){
+            return;
+        }
+
+        sudahScan = true;
 
         let dataQR;
 
@@ -29,12 +37,14 @@ function startScanner() {
         } catch {
 
             alert("Format QR Salah!");
+            sudahScan = false;
             return;
         }
 
         if (Date.now() > dataQR.expired) {
 
             alert("QR Sudah Expired!");
+            sudahScan = false;
             return;
         }
 
@@ -69,12 +79,25 @@ function startScanner() {
         })
         .then(res => res.text())
         .then(data => {
+
             console.log(data);
+
             alert("Absensi Berhasil!");
+
+            localStorage.removeItem("nama");
+            localStorage.removeItem("nim");
+
+            window.location.href = "index.html";
+
         })
         .catch(err => {
+
             console.error(err);
+
             alert("Gagal mengirim data!");
+
+            sudahScan = false;
+
         });
     }
 
