@@ -10,16 +10,33 @@ body{
 
 .container{
     text-align: center;
+    padding: 30px;
+}
+
+.logo{
+    width: 250px;
+    margin-bottom: 20px;
 }
 
 input{
-    width: 300px;
+    width: 320px;
     padding: 12px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 button{
-    padding: 12px 24px;
+    width: 180px;
+    padding: 12px;
     font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #7a0056;
+    color: white;
     cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.9;
 }
