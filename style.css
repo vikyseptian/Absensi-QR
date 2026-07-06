@@ -4,11 +4,6 @@ body{
     margin: 0;
 }
 
-.container{
-    text-align: center;
-    padding: 30px;
-}
-
 .login-page{
     display: flex;
     justify-content: center;
@@ -16,8 +11,23 @@ body{
     min-height: 100vh;
 }
 
+.admin-page{
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    padding: 30px;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
 .logo{
     width: 250px;
+    margin-bottom: 20px;
+}
+
+h1{
     margin-bottom: 20px;
 }
 
@@ -45,8 +55,9 @@ button:hover{
 }
 
 #qrcode{
-    margin: 20px auto;
-    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 #timer{
