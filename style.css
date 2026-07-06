@@ -2,15 +2,18 @@ body{
     font-family: Arial, sans-serif;
     background: white;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .container{
     text-align: center;
     padding: 30px;
+}
+
+.login-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .logo{
@@ -39,4 +42,14 @@ button{
 
 button:hover{
     opacity: 0.9;
+}
+
+#qrcode{
+    margin: 20px auto;
+    width: fit-content;
+}
+
+#timer{
+    text-align: center;
+    margin-top: 15px;
 }
