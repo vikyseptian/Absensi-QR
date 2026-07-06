@@ -10,7 +10,9 @@ body{
     align-items: center;
     min-height: 100vh;
     background: white;
+    padding: 20px;
 }
+
 .container{
     text-align: center;
     width: 95%;
@@ -19,14 +21,14 @@ body{
 }
 
 .logo{
-    width: 220px;
-    max-width: 80%;
-    margin-bottom: 25px;
+    width: 280px;
+    max-width: 90%;
+    margin-bottom: 15px;
 }
 
 h1{
     font-size: 56px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 input{
@@ -81,7 +83,7 @@ button:hover{
     }
 
     .logo{
-        width: 180px;
+        width: 220px;
     }
 
     h1{
