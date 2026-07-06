@@ -1,17 +1,16 @@
 body{
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    background: white;
     margin: 0;
 }
 
-/* LOGIN PAGE */
 .login-page{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background: white;
 }
-
 .container{
     text-align: center;
     width: 95%;
