@@ -80,16 +80,28 @@ function startScanner() {
         .then(res => res.text())
         .then(data => {
 
-            console.log(data);
+    console.log(data);
 
-            alert("Absensi Berhasil!");
+    if(data === "SUDAH_ABSEN"){
 
-            localStorage.removeItem("nama");
-            localStorage.removeItem("nim");
+        alert("Anda sudah melakukan absensi pada pertemuan ini!");
 
-            window.location.href = "index.html";
+        localStorage.removeItem("nama");
+        localStorage.removeItem("nim");
 
-        })
+        window.location.href = "index.html";
+
+        return;
+    }
+
+    alert("Absensi Berhasil!");
+
+    localStorage.removeItem("nama");
+    localStorage.removeItem("nim");
+
+    window.location.href = "index.html";
+
+})
         .catch(err => {
 
             console.error(err);
